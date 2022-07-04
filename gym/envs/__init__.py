@@ -1,0 +1,38 @@
+from gym.envs.registration import register
+register(
+    id='Fourroom-v0',
+    entry_point='envs.fourroom:FourRoom',
+    kwargs={'goal_type':'fix_goal'},
+    max_episode_steps=200,
+    reward_threshold=100.0,
+    nondeterministic=False,
+)
+register(
+    id='Fourroom-v1',
+    entry_point='envs.fourroom:FourRoom1',
+    kwargs={'goal_type':'fix_goal'},
+    max_episode_steps=200,
+    reward_threshold=100.0,
+    nondeterministic=False,
+)
+register(
+    id='CycleFourroom-v0',
+    entry_point='envs.cycle_4room:FourRoom',
+    max_episode_steps=200,
+    reward_threshold=100.0,
+    nondeterministic=False,
+)
+register(
+    id='CycleFourroom-v1',
+    entry_point='envs.cycle_4room:FourRoom1',
+    max_episode_steps=200,
+    reward_threshold=100.0,
+    nondeterministic=False,
+)
+register(
+    id='MyMountainCar-v0',
+    entry_point='envs.mountaincar:Continuous_MountainCarEnv',
+    max_episode_steps=999,
+    reward_threshold=90.0,
+    nondeterministic=False,
+)
