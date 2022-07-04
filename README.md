@@ -21,7 +21,7 @@ evolve into the target robot. Experiments on a physics simulator show that the p
 
 ### Code for MuJoCo Gym Experiments
 
-The code and scripts for our MuJoCo Gym experiments are in `gym/`. Please refer to [gym/README.md](https://github.com/xingyul/revolver/blob/master/gym/README.md) for more details on how to use our code.
+The code and scripts for our MuJoCo Gym experiments are in [gym/](https://github.com/xingyul/revolver/blob/master/gym/). Please refer to [gym/README.md](https://github.com/xingyul/revolver/blob/master/gym/README.md) for more details on how to use our code.
 
 ### Code for Hand Manipulation Suite Experiments
 
