@@ -1,4 +1,7 @@
 ### *REvolveR*: Continuous Evolutionary Models for Robot-to-robot Policy Transfer
+
+**ICML 2022 (*Long Oral, top 2.1%*)**
+
 Created by <a href="http://xingyul.github.io">Xingyu Liu</a>, <a href="https://www.cs.cmu.edu/~dpathak" target="_blank">Deepak Pathak</a> and <a href="http://www.cs.cmu.edu/~kkitani" target="_blank">Kris Kitani</a> from Carnegie Mellon University.
 
 <img src="https://github.com/xingyul/revolver/blob/master/doc/teaser.jpg" width="60%">
