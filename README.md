@@ -4,6 +4,8 @@
 
 Created by <a href="http://xingyul.github.io">Xingyu Liu</a>, <a href="https://www.cs.cmu.edu/~dpathak" target="_blank">Deepak Pathak</a> and <a href="http://www.cs.cmu.edu/~kkitani" target="_blank">Kris Kitani</a> from Carnegie Mellon University.
 
+[[arXiv]](https://arxiv.org/abs/2202.05244) [[project]](https://sites.google.com/view/r-evolve-r)
+
 <img src="https://github.com/xingyul/revolver/blob/master/doc/teaser.jpg" width="60%">
 
 ### Citation
