@@ -35,3 +35,7 @@ The code and scripts for our MuJoCo Gym experiments are in [gym/](https://github
 ### Code for Hand Manipulation Suite Experiments
 
 Coming soon. Stay tuned.
+
+### LICENSE
+
+Please refer to `LICENSE` file.
