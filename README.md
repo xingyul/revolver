@@ -34,7 +34,7 @@ The code and scripts for our MuJoCo Gym experiments are in [gym/](https://github
 
 ### Code for Hand Manipulation Suite Experiments
 
-Coming soon. Stay tuned.
+The code and scripts for our Hand Manipulation Suite experiments are in [hms/](https://github.com/xingyul/revolver/blob/master/hms/). Please refer to [hms/README.md](https://github.com/xingyul/revolver/blob/master/hms/README.md) for more details on how to use our code.
 
 ### LICENSE
 
