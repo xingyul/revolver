@@ -6,7 +6,7 @@ policy=SAC
 command_file=`basename "$0"`
 generalized_env=Humanoid-v2-leg-length-mass
 
-load_model=logs_SAC/logs_Humanoid-v2-leg-length-mass/log_SAC_Humanoid-v2-leg-length-mass_revolver_local_r1_num_interp500_robot_range0.02_train_range0.33_seed
+load_model=logs_SAC/logs_Humanoid-v2-leg-length-mass/log_SAC_Humanoid-v2-leg-length-mass_revolver_r_shaping1_num_interp500_robot_range0.02_train_range0.33_seed
 
 
 eval_interp_param=1

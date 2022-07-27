@@ -22,7 +22,7 @@ save_freq=100
 start_timesteps=10000
 interp_start=0.0
 interp_end=1.0
-local_r_shaping=1
+r_shaping=1
 num_robots=2000
 num_interp=500
 robot_sample_range=0.1
@@ -38,7 +38,7 @@ seed=0
 # seed=3
 # seed=5
 
-log_dir=logs_${policy}/logs_${generalized_env}/log_${policy}_${generalized_env}_revolver_local_r${local_r_shaping}_num_interp${num_interp}_robot_range${robot_sample_range}_train_range${train_sample_range}_seed${seed}
+log_dir=logs_${policy}/logs_${generalized_env}/log_${policy}_${generalized_env}_revolver_r_shaping${r_shaping}_num_interp${num_interp}_robot_range${robot_sample_range}_train_range${train_sample_range}_seed${seed}
 # log_dir=log_debug
 
 mkdir -p $log_dir
@@ -50,7 +50,7 @@ python train_revolver.py \
     --render $render \
     --actor_lr $actor_lr \
     --critic_lr $critic_lr \
-    --local_r_shaping $local_r_shaping \
+    --r_shaping $r_shaping \
     --max_timesteps $max_timesteps \
     --which_cuda $which_cuda \
     --seed $seed \

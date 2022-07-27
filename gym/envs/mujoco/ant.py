@@ -5,13 +5,13 @@ from gym import utils
 from envs import mujoco_env
 
 class GeneralizedAntEnv(mujoco_env.MujocoEnv, utils.EzPickle):
-    def __init__(self, model_xml, model_abspath=None, local_r_shaping=0.):
-        self.local_r_shaping_factor = 0.
+    def __init__(self, model_xml, model_abspath=None, r_shaping=0.):
+        self.r_shaping_factor = 0.
 
         mujoco_env.MujocoEnv.__init__(self, model_xml=model_xml, frame_skip=5)
         utils.EzPickle.__init__(self)
 
-        self.local_r_shaping_factor = local_r_shaping
+        self.r_shaping_factor = r_shaping
 
     def step(self, a):
         xposbefore = self.get_body_com("torso")[0]
@@ -29,7 +29,7 @@ class GeneralizedAntEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         done = not notdone
         ob = self._get_obs()
 
-        reward = reward * np.exp(self.local_r_shaping_factor)
+        reward = reward * np.exp(self.r_shaping_factor)
 
         return ob, reward, done, dict(
             reward_forward=forward_reward,

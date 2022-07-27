@@ -9,13 +9,13 @@ def mass_center(model, sim):
     return (np.sum(mass * xpos, 0) / np.sum(mass))[0]
 
 class GeneralizedHumanoidEnv(mujoco_env.MujocoEnv, utils.EzPickle):
-    def __init__(self, model_xml, model_abspath=None, local_r_shaping=0.):
-        self.local_r_shaping_factor = 0.
+    def __init__(self, model_xml, model_abspath=None, r_shaping=0.):
+        self.r_shaping_factor = 0.
 
         mujoco_env.MujocoEnv.__init__(self, model_xml=model_xml, frame_skip=5)
         utils.EzPickle.__init__(self)
 
-        self.local_r_shaping_factor = local_r_shaping
+        self.r_shaping_factor = r_shaping
 
     def _get_obs(self):
         data = self.sim.data
@@ -40,7 +40,7 @@ class GeneralizedHumanoidEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         qpos = self.sim.data.qpos
         done = bool((qpos[2] < 1.0) or (qpos[2] > 2.0))
 
-        reward = reward * (1 + self.local_r_shaping_factor)
+        reward = reward * np.exp(self.r_shaping_factor)
 
         return self._get_obs(), reward, done, dict(reward_linvel=lin_vel_cost, reward_quadctrl=-quad_ctrl_cost, reward_alive=alive_bonus, reward_impact=-quad_impact_cost)
 

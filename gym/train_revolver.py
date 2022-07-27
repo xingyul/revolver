@@ -65,7 +65,7 @@ if __name__ == "__main__":
     parser.add_argument("--max_timesteps", default=3e6, type=int)   # Max time steps to run environment
     parser.add_argument("--expl_noise", default='None')               # Std of Gaussian exploration noise
     parser.add_argument("--batch_size", default=256, type=int)      # Batch size for both actor and critic
-    parser.add_argument("--local_r_shaping", default=1.)            # Local reward shaping factor
+    parser.add_argument("--r_shaping", default=1.)            # Local reward shaping factor
     parser.add_argument("--discount", default=0.99)                 # Discount factor
     parser.add_argument("--tau", default=0.005)                     # Target network update rate
     parser.add_argument("--noise_clip", default=0.5)                # Range to clip target policy noise
@@ -103,10 +103,10 @@ if __name__ == "__main__":
     else:
         args.expl_noise = float(args.expl_noise)
 
-    if args.local_r_shaping == 'None':
-        args.local_r_shaping = None
+    if args.r_shaping == 'None':
+        args.r_shaping = None
     else:
-        args.local_r_shaping = float(args.local_r_shaping)
+        args.r_shaping = float(args.r_shaping)
 
     file_name = args.log_dir
     file_name += "_{}".format(args.comment) if args.comment != "" else ""
@@ -213,7 +213,7 @@ if __name__ == "__main__":
         env = make_generalized_envs.generalized_envs[args.generalized_env]( \
                 interp_param=float(interp_param), \
                 tmp_file_dir=tmp_file_dir, \
-                local_r_shaping=args.local_r_shaping*interp_param)
+                r_shaping=args.r_shaping*interp_param)
         envs.append(env)
 
     torch.manual_seed(args.seed)
@@ -275,7 +275,7 @@ if __name__ == "__main__":
                 if total_t < args.start_timesteps:
                     log_string('Warm up process')
 
-                log_string("Total T: {} Interp: {} Sampled Interp: {} Episode Num: {} Episode T: {} Reward: {:.3f}".format(total_t, float(interp_param) + args.interp_start, float(interp_param_sample), episode_num+1, episode_timesteps, episode_reward / np.exp(args.local_r_shaping * interp_param_sample)))
+                log_string("Total T: {} Interp: {} Sampled Interp: {} Episode Num: {} Episode T: {} Reward: {:.3f}".format(total_t, float(interp_param) + args.interp_start, float(interp_param_sample), episode_num+1, episode_timesteps, episode_reward / np.exp(args.r_shaping * interp_param_sample)))
 
                 interp_param_l = interp_param
                 interp_param_h = min(interp_param + args.robot_sample_range, 1.)
