@@ -20,7 +20,7 @@ gae=0.97
 gpu=7
 seed=0
 r_shaping=1
-log_dir=logs_${generalized_env}_2/log_${generalized_env}_r_shaping${r_shaping}_random_range${random_interp_range}_seed${seed}
+log_dir=logs_${generalized_env}/log_${generalized_env}_r_shaping${r_shaping}_random_range${random_interp_range}_seed${seed}
 # log_dir=log_debug
 
 
